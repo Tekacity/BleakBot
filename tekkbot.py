@@ -19,20 +19,23 @@ async def on_ready():
 
 
 @client.command()
-async def avatar(ctx, member: discord.User):
-    ctx.message.au
-    authorName = ctx.message.author
-    authorUrl = ctx.message.author.avatar_url
-    avatarUrl = member.avatar_url
-    memberName = member 
-    embed = discord.Embed(
-        title = memberName,
-        colour = discord.Color.blue() 
-                    
-    )
-    embed.set_image(url=avatarUrl)
-    embed.set_footer(text="Avatar requested by {}".format(authorName))  
-    await ctx.send(embed=embed)
+async def avatar(ctx, member: discord.User = None):
+
+    if member == None:
+        embed = discord.Embed(
+        colour = discord.Color.blue()                   
+        )
+        embed.set_image(url=ctx.message.author.avatar_url)
+        embed.set_footer(text="requested by {}".format(ctx.message.author), icon_url=ctx.message.author.avatar_url)  
+        await ctx.send(embed=embed)
+    else:
+        embed = discord.Embed(
+        colour = discord.Color.gold()                   
+        )
+        embed.set_image(url=member.avatar_url)
+        embed.set_footer(text="requested by {}".format(ctx.message.author), icon_url=ctx.message.author.avatar_url,)  
+        await ctx.send(embed=embed)
+
 
 @client.command()
 async def inspiro(ctx):

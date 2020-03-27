@@ -5,7 +5,7 @@ import requests
 import json
 
 logging.basicConfig(level=logging.DEBUG)
-client = commands.Bot(command_prefix='t!')
+client = commands.Bot(command_prefix='./')
 
 with open('token.json') as tokenFile:
     data = json.load(tokenFile)

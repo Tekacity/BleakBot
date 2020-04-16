@@ -1,12 +1,14 @@
 import discord
 from discord.ext import commands
+import requests
+import json
 
 class Misc(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
       
-  @bot.command()
-  async def avatar(ctx, member: discord.User = None):
+  @commands.command()
+  async def avatar(self, ctx, member: discord.User = None):
   
       if member == None:
           embed = discord.Embed(
@@ -24,8 +26,8 @@ class Misc(commands.Cog):
           await ctx.send(embed=embed)
   
   
-  @bot.command()
-  async def inspiro(ctx):
+  @commands.command()
+  async def inspiro(self, ctx):
       inspiro_gen = requests.get("https://inspirobot.me/api?generate=true")
       embed = discord.Embed(
          
@@ -38,8 +40,8 @@ class Misc(commands.Cog):
       await ctx.send(embed=embed)
   
   
-  @bot.command()
-  async def urban(ctx,*, word):
+  @commands.command()
+  async def urban(self, ctx, *, word):
       word_request = requests.get("https://api.urbandictionary.com/v0/define?term={}".format(word))
       word_data = json.loads(word_request.text)
       

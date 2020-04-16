@@ -5,9 +5,9 @@ class Moderation(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
     
-  @bot.command()
+  @commands.command()
   @commands.has_permissions(manage_messages=True)
-  async def mute(ctx, member: discord.Member):
+  async def mute(self, ctx, member: discord.Member):
       role = discord.utils.get(member.guild.roles, name="/dev/null")
       await member.add_roles(role)
       embed=discord.Embed(description="{0} has been muted by {1}".format(member, ctx.message.author))
@@ -16,9 +16,9 @@ class Moderation(commands.Cog):
   
       await ctx.send(embed=embed)
   
-  @bot.command()
+  @commands.command()
   @commands.has_permissions(manage_messages=True)
-  async def unmute(ctx, member: discord.Member):
+  async def unmute(self, ctx, member: discord.Member):
       role = discord.utils.get(member.guild.roles, name="/dev/null")
       await member.remove_roles(role)
       embed=discord.Embed(description="{0} has been unmuted by {1}".format(member, ctx.message.author))
@@ -28,3 +28,8 @@ class Moderation(commands.Cog):
     
 def setup(bot):
   bot.add_cog(Moderation(bot))
+  
+  
+  
+  
+  

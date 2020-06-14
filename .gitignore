@@ -1,5 +1,5 @@
-token.json
+**/token.json
 include/
 lib/
 lib64/
-cogs/__pycache__/
+src/cogs/__pycache__/**

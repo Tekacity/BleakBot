@@ -1,4 +1,5 @@
 token.json
-test.py
-test.json
-text.txt
+include/
+lib/
+lib64/
+cogs/__pycache__/

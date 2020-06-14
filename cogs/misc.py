@@ -54,7 +54,7 @@ class Misc(commands.Cog):
       )
    
       embed.add_field(value=word_data['list'][0]['example'], name="**example(s)**")
-      embed.set_thumbnail(url=bot.user.avatar_url)
+      embed.set_thumbnail(url=discord.bot.user.avatar_url)
       await ctx.send(embed=embed)
 
     
